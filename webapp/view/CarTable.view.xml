@@ -1,0 +1,130 @@
+<carTable:View
+    controllerName="fiori.practice.controller.CarTable"
+    xmlns:carTable="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+>
+    <Page id="carTable" title="Car Table" showNavButton="true" navButtonPress="onNavBack">
+		
+        <content>
+
+            <carTable:XMLView viewName="fiori.practice.view.NavBar" id="navBarViewOnCarTable" class="navBar" />
+
+            <!-- <Text id="carTableText1" text="Welcome to Car Table" /> -->
+
+            <Table id="idProductsTable" items="{CarModel>/}" headerText="Car Table">
+		        <headerToolbar>
+			        
+                    <OverflowToolbar>
+				        <content>
+					        <Title text="Car Table" level="H2"/>
+					            <ToolbarSpacer />
+                                
+								
+
+	            				<ToggleButton id="toggleInfoToolbar"
+                                    text="Hide/Show InfoToolbar"
+                                    press="onToggleInfoToolbar" />
+				        </content>
+			        </OverflowToolbar>
+		
+                </headerToolbar>
+		
+                <infoToolbar>
+			        <OverflowToolbar>
+				        
+						<Label text="Other Options - "/>
+
+					    <ToolbarSpacer />
+
+						<SearchField ariaLabelledBy="text1" id="maxPrice" liveChange="onSearch">
+								<layoutData><OverflowToolbarLayoutData maxWidth="300px" shrinkable="true" priority="NeverOverflow"/></layoutData>
+						</SearchField>
+
+					    <ToolbarSpacer />
+
+						<OverflowToolbarMenuButton tooltip="Sort" type="Transparent" text="Sort" buttonMode="Split" icon="sap-icon://sort" useDefaultActionOnly="true">
+							<menu>
+								<Menu itemSelected="onMenuAction">
+									<MenuItem text="Sort by Price" icon="sap-icon://sort" press="sorting" />
+									<MenuItem text="Sort by Rating" icon="sap-icon://sort" press="sorting" />
+								</Menu>
+							</menu>
+						</OverflowToolbarMenuButton>
+
+						<Button text="Reset" type="Transparent" press="onReset"/>
+
+			        </OverflowToolbar>
+	        	</infoToolbar>
+		
+                <columns>
+					
+					<Column>
+						<Text text="Model" />
+					</Column>
+					<Column>
+						<Text text="Rating" />
+					</Column>
+					<Column>
+						<Text text="Mileage" />
+					</Column>
+					<Column>
+						<Text text="Engine" />
+					</Column>
+					<Column>
+						<Text text="Transmission" />
+					</Column>
+					<Column>
+						<Text text="Fuel Type" />
+					</Column>
+					<Column>
+						<Text text="Seating Capacity" />
+					</Column>
+					<Column>
+						<Text text="Price" />
+					</Column>
+				</columns>
+
+				<items>
+					<ColumnListItem vAlign="Middle">
+						<cells>
+
+							<ObjectNumber
+								class="sapUiSmallMarginBottom"
+								number="{CarModel>name}"
+							/>
+							
+							<RatingIndicator maxValue="5" class="sapUiSmallMarginBottom" value="{CarModel>rating}" editable="false" />
+							
+							<Text text="{CarModel>mileage}" />
+							
+							<Text text="{CarModel>engine}" />
+							
+							<Text text="{CarModel>transmission}" />
+							
+							<ObjectNumber
+								class="sapUiSmallMarginBottom"
+								inverted="true"
+								number="{CarModel>fuel_type}"
+								state="{path : 'CarModel>fuel_type' , formatter : '.formatter.FuelState'}" />
+							
+							<Text text="{CarModel>seating_capacity}" />
+							
+							<ObjectNumber
+								class="sapUiSmallMarginBottom"
+								number="{CarModel>price}"
+								state="Success"
+								unit="{CarModel>currency}"
+							/>
+
+						</cells>
+					</ColumnListItem>
+				</items>
+				
+			</Table>
+            
+        </content>
+
+    </Page>
+
+</carTable:View>

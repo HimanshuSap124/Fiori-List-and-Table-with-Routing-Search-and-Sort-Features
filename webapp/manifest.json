@@ -1,0 +1,152 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "fiori.practice",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.15.7",
+      "toolsId": "dc8d5532-0e6d-48d9-94ee-154b10b112db"
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "Sample-Fiori": {
+          "semanticObject": "Sample",
+          "action": "Fiori",
+          "title": "{{flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.131.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "fiori.practice.i18n.i18n"
+        }
+      },
+      "CarModel" : {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/CarModel.json"
+      },
+      "TempModel" : {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/TemporaryModel.json"
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "fiori.practice.view",
+        "async": true,
+        "viewPath": "fiori.practice.view"
+      },
+      "routes": [
+        {
+          "name": "RouteHome",
+          "pattern": ":?query:",
+          "target": [
+            "TargetHome"
+          ]
+        },
+        {
+          "name" : "CarTableView",
+          "pattern": "carTable",
+          "target" : "carTableTarget"
+        },
+        {
+          "name": "ListView",
+          "pattern": "smartList",
+          "target" : "SmartListTarget"
+        },
+        {
+          "name": "ListDetailView",
+          "pattern": "details",
+          "target" : "listDetailTarget"
+        }
+      ],
+      "targets": {
+        "TargetHome": {
+          "id": "Home",
+          "name": "Home"
+        },
+        "carTableTarget" :{
+          "id": "carTableTarget",
+          "name": "CarTable",
+          "transition" : "fade"
+        },
+        "SmartListTarget" : {
+          "id": "SmartTableView",
+          "name": "List",
+          "transition" : "fade"
+        },
+        "listDetailTarget" :{
+          "id": "listDetailView",
+          "name": "ListDetail",
+          "transition" : "fade"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "fiori.practice.view.App",
+      "type": "XML",
+      "id": "App"
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "fioripractice"
+  }
+}

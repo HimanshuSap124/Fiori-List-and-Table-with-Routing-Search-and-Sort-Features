@@ -1,0 +1,40 @@
+<mvc:View controllerName="fiori.practice.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>home}">
+        <content>
+            <mvc:XMLView id="navBarView" viewName="fiori.practice.view.NavBar" class="navBar" />
+
+            <ObjectHeader
+                binding=""
+                title="List View"
+                class="sapUiResponsivePadding--header" >
+		    
+                <statuses>
+                    <ObjectStatus
+                        text="Navigate through above Nav Bar."
+                        state="Success" />
+                </statuses>
+
+                <ObjectAttribute text="List View contains JSON Model binding with List View and each item have separate Detail page as well." />
+
+	        </ObjectHeader>
+            
+            <ObjectHeader
+                binding=""
+                title="Table View"
+                class="sapUiResponsivePadding--header" >
+		    
+                <statuses>
+                    <ObjectStatus
+                        text="Navigate through above Nav Bar."
+                        state="Success" />
+                </statuses>
+
+                <ObjectAttribute text="Table View is Tabular Representation of JSON Model with Search, Sort facilities." />
+
+	        </ObjectHeader>
+
+        </content>
+    </Page>
+</mvc:View>

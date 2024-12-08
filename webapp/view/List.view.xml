@@ -1,0 +1,46 @@
+<mvc:View
+	controllerName="fiori.practice.controller.List"
+	height="100%"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:f="sap.f"
+	xmlns:core="sap.ui.core"
+	xmlns:mdc="sap.ui.mdc"
+	xmlns:mdct="sap.ui.mdc.table">
+
+	<Page id="page_smartTable" title="List Page" showNavButton="true" navButtonPress="onNavBack" >
+		<content>
+
+            <mvc:XMLView viewName="fiori.practice.view.NavBar" id="navBarViewOnCarTableOnSmartTable" class="navBar" />
+
+			<VBox>
+				<List
+				items="{CarModel>/}"
+				headerText="Products"
+			>
+				<ObjectListItem
+					title="{CarModel>name}"
+					type="Active"
+					press="onListItemPress"
+					number="{
+						parts:[{path:'CarModel>price'}],
+						type: 'sap.ui.model.type.Currency',
+						formatOptions: {showMeasure: false}
+					}"
+					numberUnit="{CarModel>currency}">
+				
+				<ObjectAttribute text="Engine - {CarModel>engine} - {CarModel>transmission} - {CarModel>fuel_type}" />
+				
+				<ObjectAttribute text="Mileage - {CarModel>mileage}" />
+
+				<ObjectAttribute text="Seating Capacity - {CarModel>seating_capacity}" />
+
+				</ObjectListItem>
+			</List>
+			</VBox>
+			
+		</content>
+	</Page>
+
+</mvc:View>

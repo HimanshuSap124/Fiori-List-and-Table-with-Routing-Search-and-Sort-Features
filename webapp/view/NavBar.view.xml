@@ -1,0 +1,12 @@
+<navbar:View
+    controllerName="fiori.practice.controller.NavBar"
+    xmlns:navbar="sap.ui.core.mvc"
+    xmlns="sap.m"
+>
+    <Panel id="navbar_panel">
+        <content>
+            <Button id="navbar_panel_button_to_smartList" class="navButton" text="{i18n>nav2}" press="ListView" />
+            <Button id="navbar_panel_button_to_carTable" class="navButton" text="{i18n>nav1}" press="toCarTableView" />
+        </content>
+    </Panel>
+</navbar:View>

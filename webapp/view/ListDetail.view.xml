@@ -1,0 +1,45 @@
+<listDetailPage:View
+    xmlns:listDetailPage="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    controllerName="fiori.practice.controller.ListDetail"
+>
+
+<Page id="listDetailPage" title="Details" showNavButton="true" navButtonPress="navToListPage">
+    <content>
+        	<ObjectHeader
+                binding="{TempModel>/}"
+                title="{TempModel>name}"
+                number="{path:'TempModel>fuel_type'}"
+                class="sapUiResponsivePadding--header" >
+		    
+            <statuses>
+                <ObjectStatus
+                    text="Mileage {TempModel>mileage}"
+                    state="Success" />
+
+                <ObjectStatus
+                    text="In Stock"
+                    state="Success" />
+            </statuses>
+
+		<ObjectAttribute text="Engine - {TempModel>engine}" />
+
+		<ObjectAttribute text="Transmission - {TempModel>transmission}" />
+
+		<ObjectAttribute text="Seating Capacity - {TempModel>seating_capacity}" />
+
+		<ObjectAttribute
+			text="Price - {TempModel>price} {TempModel>currency}"
+		 />
+
+		<ObjectAttribute
+			text="Rating - {TempModel>rating}"
+		 />
+
+
+	</ObjectHeader>
+    </content>
+</Page>
+
+</listDetailPage:View>
